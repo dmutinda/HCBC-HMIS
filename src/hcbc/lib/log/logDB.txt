@@ -1,0 +1,2 @@
+Tue, 16 May 2017 12:51:13 +0300 : 
+Undefined index: models\tickets in C:\Mutinda\Projects\PHP\Workspace\helpdesk\controllers\abstractController.php on line 38
