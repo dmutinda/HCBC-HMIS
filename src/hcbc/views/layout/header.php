@@ -23,6 +23,7 @@
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<a class="navbar-brand" href="/">
+					<i class="fa fa-users"></i>
 						<?php echo $this->app->getAppCompany();?>
 					</a>
 				</div>
@@ -49,7 +50,7 @@
 				<?php else:?>
 					<div class="navbar-btn-wrapper">
 						<div class="navbar-right">
-							<a class="btn btn-default navbar-btn" href="#">WORK WITH US!</a>
+							<a class="btn btn-clear navbar-btn" href="#">WORK WITH US!</a>
 							<a class="btn btn-green navbar-btn" href="#">SIGN IN</a>
 						</div>
 					</div>
