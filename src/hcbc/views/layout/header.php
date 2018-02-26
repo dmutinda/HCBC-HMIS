@@ -27,8 +27,6 @@
 						<?php echo $this->app->getAppCompany();?>
 					</a>
 				</div>
-				
-				<!-- login -->
 				<?php if($valid):?>
 					<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
