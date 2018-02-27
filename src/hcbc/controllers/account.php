@@ -71,7 +71,7 @@
 					$this->account->setError(array('UserName' => 'Please check your username and password and try again.'));
 				}
 			}
-			return json_encode($this->errors);
+			$this->getView()->render($this->controller,  __FUNCTION__);
 		}
 		
 		public function password()
@@ -129,7 +129,7 @@
 				}
 			}
 			$this->account = $this->getModel('models\user')->find($id);
-			return json_encode($this->account);
+			$this->getView()->render($this->controller,  __FUNCTION__);
 		}
 		
 		public function reset()

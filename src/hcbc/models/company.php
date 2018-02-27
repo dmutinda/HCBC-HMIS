@@ -5,7 +5,23 @@
 	class company extends abstractModel
 	{	
 		private $Id;
+		private $Code;
 		private $Name;
+		private $Contact;
+		private $PostalAddress;
+		private $PostalCode;
+		private $Phone1;
+		private $Phone2;
+		private $Email;
+		private $Website;
+		private $PhysicalLocation;
+		private $City;
+		private $CountryCode;
+		private $TaxNumber;
+		private $Logopath;
+		private $Disabled;
+		private $DefaultCompany;
+		private $Created;
 
 		private $errors = array();
 		
@@ -71,16 +87,16 @@
 		}
 
 		/**
-		 * return atm location records
-		 * @param string $strSearch
+		 * find facility by Id
+		 * @param string $facilityId
 		 * @return array 
 		 */
-		public function getAtms($strSearch = null)
+		public function findFacility($facilityId)
 		{
 			$data = array();
-			if(!empty($strSearch))
+			if(!empty($facilityId))
 			{
-				$results = $this->db->sqlQuery("SELECT * FROM Atms WHERE AtmLocation LIKE '%".$strSearch."%';");
+				$results = $this->db->sqlQuery("SELECT * FROM Facilities WHERE Id = '".$facilityId."';");
 			}
 			else
 			{
@@ -88,30 +104,7 @@
 			}
 			while($row = $this->db->getArray($results))
 			{
-				$data [] = $row;
-			}
-			return $data;
-		}
-
-		/**
-		 * return atm location records
-		 * @param string $strSearch
-		 * @return array 
-		 */
-		public function getForexRates($strSearch = null)
-		{
-			$data = array();
-			if(!empty($strSearch))
-			{
-				$results = $this->db->sqlQuery("SELECT * FROM ForexRates WHERE CurrencyCode LIKE '%".$strSearch."%' OR CurrencyName LIKE '%".$strSearch."%';");
-			}
-			else
-			{
-				$results = $this->db->sqlQuery("SELECT * FROM ForexRates;");
-			}
-			while($row = $this->db->getArray($results))
-			{
-				$data [] = $row;
+				$data = $row;
 			}
 			return $data;
 		}
@@ -148,6 +141,28 @@
 			$company->Id,
 			'$company->Name'";
 			
+			/*
+			Id;
+			Code;
+			Name;
+			Contact;
+			PostalAddress
+			PostalCode;
+			Phone1;
+			Phone2;
+			Email;
+			Website;
+			PhysicalLocation;
+			City;
+			CountryCode;
+			TaxNumber;
+			Logopath;
+			Disabled;
+			DefaultCompany;
+			Created;
+			*/
+
+
 			$Id = (int) $company->Id;
 			if ($Id == 0)
 			{
@@ -183,6 +198,44 @@
 			}
 			return false;
 		}
+
+		//delete facility record
+		public function deleteFacility($id)
+		{
+			if (!empty($id))
+			{
+				$row = $this->find($id);
+				if ($row)
+				{
+					$results = $this->db->sqlQuery('DELETE FROM Facilities WHERE Id = '.$id.';');
+					return true;
+				}
+			}
+			return false;
+		}
+
+
+		/*
+			Id;
+			Code;
+			Name;
+			Contact;
+			PostalAddress
+			PostalCode;
+			Phone1;
+			Phone2;
+			Email;
+			Website;
+			PhysicalLocation;
+			City;
+			CountryCode;
+			TaxNumber;
+			Logopath;
+			Disabled;
+			DefaultCompany;
+			Created;
+			*/
+
 
 		/**
 		 * object data assignment from input data

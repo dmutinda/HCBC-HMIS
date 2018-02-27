@@ -69,11 +69,26 @@
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li ><a href="/">Home</a></li>
+					<li ><a href="/"><i class="fa fa-home"></i> Home</a></li>
+					<li><a href="#">Dashboard</a></li>
 					<li><a href="#">Institution</a></li>
 					<li><a href="#">Facilities</a><li> 
-					<li><a href="#">Forms</a></li> 
-					<li><a href="#">Reports</a></li>
+					<li><a href="#">Clients</a><li> 
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+							Daily Activities <i class="fa fa-angle-down"></i>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">CHW Appointments</a></li>
+							<li><a href="#">CHW Notes</a></li>
+							<li><a href="#">Daily Activity Diary</a></li>
+							<li><a href="#">Referral form</a></li>
+							<li><a href="#">Service Delivery Log Book</a></li>
+							<li><a href="#">HCBC Diary</a></li>
+							<li><a href="#">Facility Summary Form</a></li>
+						</ul>
+					</li>
+					<li><a href="#"><i class="fa fa-question"></i> Help</a></li>
 				</ul>
 				<!-- authenticated menus -->
 
@@ -95,4 +110,4 @@
 		</div>
 	</nav>
 
-	<div id="content" class="container main-content">	
+	<div id="content" class="container-fluid main-content">

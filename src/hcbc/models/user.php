@@ -5,12 +5,27 @@
 	class user extends abstractModel
 	{	
 		private $Id;
+		private $UserCode;
+		private $JobTitleId;
 		private $FacilityId;
 		private $NationalId;
 		private $FirstName;
 		private $LastName;
 		private $UserName;
+		private $Root;
 		private $Password;
+		private $SecurityStamp;
+		private $RegKey;
+		private $Registered;
+		private $ImgPath;
+		private $TwoFactorEnabled;
+		private $LockoutEndDateUtc;
+		private $LockoutEnabled;
+		private $AccessFailedCount;
+		private $PhoneNumber;
+		private $PhoneNumberConfirmed;
+		private $Email;
+		private $EmailConfirmed;
 		private $Disabled;
 		private $Created;
 
@@ -52,15 +67,30 @@
 		{
 			$user->Name = strtoupper($user->Name);
 			/*
-			Id
-			FacilityId
-			NationalId
-			FirstName
-			LastName
-			UserName
+			Id;
+			UserCode;
+			JobTitleId;
+			FacilityId;
+			NationalId;
+			FirstName;
+			LastName;
+			UserName;
+			Root;
 			Password
-			Disabled
-			Created
+			SecurityStamp;
+			RegKey;
+			Registered;
+			ImgPath;
+			TwoFactorEnabled;
+			LockoutEndDateUtc;
+			LockoutEnabled;
+			AccessFailedCount;
+			PhoneNumber;
+			PhoneNumberConfirmed;
+			Email;
+			EmailConfirmed;
+			Disabled;
+			Created;
 			*/
 			$data = "
 			$user->Id,
@@ -165,6 +195,34 @@
 			}
 			return false;
 		}
+
+		/*
+		Id;
+		UserCode;
+		JobTitleId;
+		FacilityId;
+		NationalId;
+		FirstName;
+		LastName;
+		UserName;
+		Root;
+		Password
+		SecurityStamp;
+		RegKey;
+		Registered;
+		ImgPath;
+		TwoFactorEnabled;
+		LockoutEndDateUtc;
+		LockoutEnabled;
+		AccessFailedCount;
+		PhoneNumber;
+		PhoneNumberConfirmed;
+		Email;
+		EmailConfirmed;
+		Disabled;
+		Created;
+		*/
+
 
 		/**
 		 * object data assignment from input data
