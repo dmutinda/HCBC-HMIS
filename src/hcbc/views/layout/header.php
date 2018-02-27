@@ -23,11 +23,10 @@
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<a class="navbar-brand" href="/">
+					<i class="fa fa-users"></i>
 						<?php echo $this->app->getAppCompany();?>
 					</a>
 				</div>
-				
-				<!-- login -->
 				<?php if($valid):?>
 					<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
@@ -49,7 +48,7 @@
 				<?php else:?>
 					<div class="navbar-btn-wrapper">
 						<div class="navbar-right">
-							<a class="btn btn-default navbar-btn" href="#">WORK WITH US!</a>
+							<a class="btn btn-clear navbar-btn" href="#">WORK WITH US!</a>
 							<a class="btn btn-green navbar-btn" href="#">SIGN IN</a>
 						</div>
 					</div>
@@ -77,6 +76,21 @@
 					<li><a href="#">Reports</a></li>
 				</ul>
 				<!-- authenticated menus -->
+
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+							<i class="fa fa-phone"></i> +254 722 000 001 <i class="fa fa-angle-down"></i>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="#"><i class="fa fa-phone"></i> Queries: +254 733 000 001</a></li>
+							<li><a href="#"><i class="fa fa-phone"></i> Support: +254 722 000 002</a></li>
+						</ul>
+					</li>
+					<li><a href="#"><i class="fa fa-envelope"></i> Contacts</a></li>
+				</ul>
+
+
 			</div>
 		</div>
 	</nav>

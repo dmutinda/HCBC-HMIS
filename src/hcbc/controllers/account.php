@@ -15,12 +15,12 @@
 		
 		public function index()
 		{
-			return json_encode(__FUNCTION__);
+			$this->getView()->render($this->controller,  __FUNCTION__);
 		}
 		
-		public function details($id)
+		public function profile($id)
 		{
-			return json_encode(__FUNCTION__);
+			$this->getView()->render($this->controller,  __FUNCTION__);
 		}
 		
 		public function login()
@@ -134,7 +134,7 @@
 		
 		public function reset()
 		{
-			return json_encode(__FUNCTION__);
+			$this->getView()->render($this->controller,  __FUNCTION__);
 		}
 
 		public function logout()

@@ -24,6 +24,18 @@ class main extends abstractController
 	{
 		$this->getView()->render($this->controller,  __FUNCTION__);
 	}
+
+	public function benefits()
+	{
+		$this->getView()->render($this->controller,  __FUNCTION__);
+	}
+
+	public function start()
+	{
+		$this->getView()->render($this->controller,  __FUNCTION__);
+	}
+
+	
 	
 } 
 

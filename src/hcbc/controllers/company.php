@@ -15,22 +15,22 @@
 		
 		public function index()
 		{
-			return json_encode(__FUNCTION__);
+			$this->getView()->render($this->controller,  __FUNCTION__);
 		}
 		
 		public function details($id)
 		{
-			return json_encode(__FUNCTION__);
+			$this->getView()->render($this->controller,  __FUNCTION__);
 		}
 
 		public function facilities()
 		{
-			return json_encode(__FUNCTION__);
+			$this->getView()->render($this->controller,  __FUNCTION__);
 		}
 
 		public function facility()
 		{
-			return json_encode(__FUNCTION__);
+			$this->getView()->render($this->controller,  __FUNCTION__);
 		}
 		
 	}
