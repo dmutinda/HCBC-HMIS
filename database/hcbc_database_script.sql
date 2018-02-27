@@ -16,6 +16,47 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `Clients`
+--
+
+DROP TABLE IF EXISTS `Clients`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Clients` (
+  `Id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `Code` varchar(20) NOT NULL,
+  `FirstName` varchar(100) NOT NULL,
+  `LastName` varchar(100) NOT NULL,
+  `SurName` varchar(100) DEFAULT NULL,
+  `PostalAddress` varchar(255) DEFAULT NULL,
+  `PostalCode` varchar(10) DEFAULT NULL,
+  `Phone1` varchar(40) NOT NULL,
+  `Phone2` varchar(40) DEFAULT NULL,
+  `Email` varchar(255) DEFAULT NULL,
+  `PhysicalLocation` varchar(255) DEFAULT NULL,
+  `City` varchar(50) DEFAULT NULL,
+  `CountryCode` varchar(5) DEFAULT NULL,
+  `NextOfKin` varchar(100) NOT NULL,
+  `NOKPhone1` varchar(40) NOT NULL,
+  `NOKPhone2` varchar(40) DEFAULT NULL,
+  `NOKPhysicalLocation` varchar(255) DEFAULT NULL,
+  `Imagepath` varchar(255) DEFAULT NULL,
+  `IsPatient` tinyint(1) NOT NULL,
+  `LastUpdated` datetime NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Clients`
+--
+
+LOCK TABLES `Clients` WRITE;
+/*!40000 ALTER TABLE `Clients` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Clients` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Companies`
 --
 
@@ -144,4 +185,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-26 23:05:47
+-- Dump completed on 2018-02-27 18:44:41
