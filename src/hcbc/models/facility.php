@@ -2,25 +2,12 @@
 
 	namespace models;
 	
-	class company extends abstractModel
+	class facility extends abstractModel
 	{	
 		private $Id;
-		private $Code;
-		private $Name;
-		private $Contact;
-		private $PostalAddress;
-		private $PostalCode;
-		private $Phone1;
-		private $Phone2;
-		private $Email;
-		private $Website;
-		private $PhysicalLocation;
-		private $City;
-		private $CountryCode;
-		private $TaxNumber;
-		private $Logopath;
-		private $Disabled;
-		private $DefaultCompany;
+		private $FacilityCode;
+		private $CompanyId;
+		private $FacilityName;
 		private $Created;
 
 		private $errors = array();
@@ -41,7 +28,7 @@
 		}
 	
 		/**
-		 * return company records
+		 * return facility records
 		 * @param string $strSearch
 		 * @return array 
 		 */
@@ -50,11 +37,11 @@
 			$data = array();
 			if(!empty($strSearch))
 			{
-				$results = $this->db->sqlQuery("SELECT * FROM Companies WHERE Name LIKE '%".$strSearch."%';");
+				$results = $this->db->sqlQuery("SELECT * FROM Facilities WHERE FacilityName LIKE '%".$strSearch."%';");
 			}
 			else
 			{
-				$results = $this->db->sqlQuery("SELECT * FROM Companies;");
+				$results = $this->db->sqlQuery("SELECT * FROM Facilities;");
 			}
 			while($row = $this->db->getArray($results))
 			{
@@ -64,7 +51,7 @@
 		}
 
 		/**
-		 * find company by Id
+		 * find facility by Id
 		 * @param int $id
 		 * @return array
 		 */
@@ -73,7 +60,7 @@
 			$data = array();
 			if(!empty($id))
 			{
-				$results = $this->db->sqlQuery("SELECT * FROM Companies WHERE Id = '".$id."';");
+				$results = $this->db->sqlQuery("SELECT * FROM Facilities WHERE Id = '".$id."';");
 				while($row = $this->db->getArray($results))
 				{
 					$data = $row;
@@ -83,44 +70,30 @@
 		}
 
 		/**
-		 * save company data
-		 * @param array $company
+		 * save facility data
+		 * @param array $facility
 		 * @return array
 		 */
-		public function save(company $company)
+		public function save(facility $facility)
 		{
-			$company->Name = strtoupper($company->Name);
+			$facility->Name = strtoupper($facility->Name);
 			
 			$data = "
-			$company->Id,
-			'$company->Name'";
+			$facility->Id,
+			'$facility->Name'";
 			
 			/*
 			Id;
-			Code;
-			Name;
-			Contact;
-			PostalAddress
-			PostalCode;
-			Phone1;
-			Phone2;
-			Email;
-			Website;
-			PhysicalLocation;
-			City;
-			CountryCode;
-			TaxNumber;
-			Logopath;
-			Disabled;
-			DefaultCompany;
+			FacilityCode;
+			CompanyId;
+			FacilityName;
 			Created;
 			*/
 
-
-			$Id = (int) $company->Id;
+			$Id = (int) $facility->Id;
 			if ($Id == 0)
 			{
-				$results = $this->db->sqlQuery('INSERT INTO Companies VALUES ('.$data.');');
+				$results = $this->db->sqlQuery('INSERT INTO Facilities VALUES ('.$data.');');
 				while($row = $this->db->getArray($results))
 				{
 					$res = $row;
@@ -131,7 +104,7 @@
 			{
 				if ($this->find($Id))
 				{
-					$results = $this->db->sqlQuery('UPDATE Companies SET ('.$data.');');
+					$results = $this->db->sqlQuery('UPDATE Facilities SET ('.$data.');');
 					return true;
 				}
 			}
@@ -139,7 +112,7 @@
 		}
 		
 		/**
-		 * delete company record
+		 * delete facility record
 		 * @param int $id
 		 * @return bool
 		 */
@@ -150,34 +123,12 @@
 				$row = $this->find($id);
 				if ($row)
 				{
-					$results = $this->db->sqlQuery('DELETE FROM Companies WHERE Id = '.$id.';');
+					$results = $this->db->sqlQuery('DELETE FROM Facilities WHERE Id = '.$id.';');
 					return true;
 				}
 			}
 			return false;
 		}
-
-		/*
-			Id;
-			Code;
-			Name;
-			Contact;
-			PostalAddress
-			PostalCode;
-			Phone1;
-			Phone2;
-			Email;
-			Website;
-			PhysicalLocation;
-			City;
-			CountryCode;
-			TaxNumber;
-			Logopath;
-			Disabled;
-			DefaultCompany;
-			Created;
-			*/
-
 
 		/**
 		 * object data assignment from input data
@@ -186,18 +137,23 @@
 		public function exchangeArray($data)
 		{
 			$this->Id = (!empty($data['Id'])) ? $data['Id'] : 0;
-			$this->Name = (!empty($data['Name'])) ? $data['Name'] : null;
+			$this->FacilityCode = (!empty($data['FacilityCode'])) ? $data['FacilityCode'] : null;
+			$this->CompanyId = (!empty($data['CompanyId'])) ? $data['CompanyId'] : 0;
+			$this->FacilityName = (!empty($data['FacilityName'])) ? $data['FacilityName'] : 0;
+			$this->Created = (!empty($data['Created'])) ? $data['Created'] : date('Y-m-d H:i:s');
 		}
 		
 		/**
-		 * validate company details inputs
+		 * validate facility details inputs
 		 * @param array $data
 		 * @return array
 		 */
 		public function validateTtDetails($data)
 		{
 			$validationRule = array(
-				'Name' => array('required' => true, 'type' => 'string', 'message' => 'The Company name is required.'),
+				'FacilityCode' => array('required' => true, 'type' => 'string', 'message' => 'The Facility Code is required.'),
+				'CompanyId' => array('required' => true, 'type' => 'int', 'message' => 'The Institution is required.'),
+				'FacilityName' => array('required' => true, 'type' => 'string', 'message' => 'The Facility name is required.'),
 			);
 			$this->setError(\core\validator::validate($data, $validationRule));
 		}
