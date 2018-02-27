@@ -16,6 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `AppointmentLocations`
+--
+
+DROP TABLE IF EXISTS `AppointmentLocations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `AppointmentLocations` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Location` text NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AppointmentLocations`
+--
+
+LOCK TABLES `AppointmentLocations` WRITE;
+/*!40000 ALTER TABLE `AppointmentLocations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AppointmentLocations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Clients`
 --
 
@@ -125,6 +148,77 @@ LOCK TABLES `Facilities` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `JobTitles`
+--
+
+DROP TABLE IF EXISTS `JobTitles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `JobTitles` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(100) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `JobTitles`
+--
+
+LOCK TABLES `JobTitles` WRITE;
+/*!40000 ALTER TABLE `JobTitles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `JobTitles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `SystemResources`
+--
+
+DROP TABLE IF EXISTS `SystemResources`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `SystemResources` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` text NOT NULL,
+  `Disabled` int(1) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SystemResources`
+--
+
+LOCK TABLES `SystemResources` WRITE;
+/*!40000 ALTER TABLE `SystemResources` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SystemResources` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `SystemRoles`
+--
+
+DROP TABLE IF EXISTS `SystemRoles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `SystemRoles` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(40) NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `ix_Name` (`Name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SystemRoles`
+--
+
+LOCK TABLES `SystemRoles` WRITE;
+/*!40000 ALTER TABLE `SystemRoles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SystemRoles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Users`
 --
 
@@ -185,4 +279,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-27 18:44:41
+-- Dump completed on 2018-02-27 19:14:18
