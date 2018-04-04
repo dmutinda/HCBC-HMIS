@@ -1,3 +1,24 @@
 <div class="col-md-12">
-	<h1 class="jumbo">User Account Profile</h1>
+	<h1 class="jumbo">Account Profile</h1>
+</div>
+
+<div class="col-md-12">
+	<dl class="dl-horizontal">
+		<dt>Full Name</dt>
+		<dd><?php echo $user['FirstName'];?> <?php echo $user['LastName'];?></dd>
+		<dt>User Code</dt>
+		<dd><?php echo $user['UserCode'];?></dd>
+		<dt>UserName</dt>
+		<dd><?php echo $user['UserName'];?></dd>
+		<dt>Phone Number</dt>
+		<dd><?php echo $user['PhoneNumber'];?></dd>
+		<dt>Email</dt>
+		<dd><?php echo $user['Email'];?></dd>
+		<dt>Job Title</dt>
+		<dd><?php echo $user['JobTitleId'];?></dd>
+		<dt>Facility</dt>
+		<dd><?php echo $user['FacilityId'];?></dd>
+		<dt>NationalId</dt>
+		<dd><?php echo $user['NationalId'];?></dd>
+	</dl>
 </div>

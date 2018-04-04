@@ -28,6 +28,11 @@
 			$this->getView()->render($this->controller,  __FUNCTION__);
 		}
 
+		public function clients()
+		{
+			$this->getView()->render($this->controller,  __FUNCTION__);
+		}
+
 		public function facility()
 		{
 			$this->getView()->render($this->controller,  __FUNCTION__);

@@ -1,10 +1,14 @@
+<?php if(!$valid):?>
 <section class="features">
 	<div class="row">
 		<div class="col-lg-12 text-center">
 			<div class="section-heading">
-				<h2>Support your community</h2>
-				<p class="text-muted">Help your community to live a <span> healthier life</span></p>
-				<a class="btn btn-default navbar-btn" href="#">ENROLL YOUR COMMUNITY</a>
+				<h2>Supporting our <span class="text-primary">Community</span></h2>
+				<h3 class="article-title text-muted">Get rewarded as you help your community live a <span> healthier life.</span></h3>
+				
+				<a href="/main/About" class="btn btn-green btn-xl">About HCBC</a>
+				<a href="/main/benefits" class="btn btn-default btn-xl">HCBC Benefits</a>
+
 				<hr>
 			</div>
 		</div>
@@ -20,21 +24,21 @@
 						<div class="feature-item">
 							<i class="fa fa-users text-primary"></i>
 							<h3>Work with Us</h3>
-							<p class="text-muted"></p>
+							<p class="text-muted">Enroll as a community health worker today.</p>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="feature-item">
 							<i class="fa fa-info text-primary"></i>
 							<h3>How it Works</h3>
-							<p class="text-muted">&nbsp;</p>
+							<p class="text-muted">Train as a health worker and help the need in your community.</p>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="feature-item">
 							<i class="fa fa-home text-primary"></i>
 							<h3>Community</h3>
-							<p class="text-muted">&nbsp;</p>
+							<p class="text-muted">The community benefits as more help come from within.</p>
 						</div>
 					</div>
 				</div>
@@ -46,7 +50,7 @@
 <section id="contact" class="contact">
     <ul class="list-inline list-social">
         <li class="social-contact">
-            <a href="@Url.Action("Contact","About")"><i class="fa fa-envelope"></i></a>
+            <a href="#"><i class="fa fa-envelope"></i></a>
         </li>
         <li class="social-twitter">
             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -59,3 +63,4 @@
         </li>
     </ul>
 </section>
+<?php endif;?>

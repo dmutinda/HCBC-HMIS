@@ -91,35 +91,33 @@
 		 */
 		public function save(client $client)
 		{
-			$client->Name = strtoupper($client->Name);
+			$client->FirstName = strtoupper($client->FirstName);
+			$client->LastName = strtoupper($client->LastName);
+			$client->SurName = strtoupper($client->SurName);
 			
-			$data = "
-			$client->Id,
-			'$client->Name'";
+			$data = array(		
+				'Id' => $client->Id,
+				'Code' => $client->Code,
+				'FirstName' => $client->FirstName,
+				'LastName' => $client->LastName,
+				'SurName' => $client->SurName,
+				'PostalAddress' => $client->PostalAddress,
+				'PostalCode' => $client->PostalCode,
+				'Phone1' => $client->Phone1,
+				'Phone2' => $client->Phone2,
+				'Email' => $client->Email,
+				'PhysicalLocation' => $client->PhysicalLocation,
+				'City' => $client->City,
+				'CountryCode' => $client->CountryCode,
+				'NextOfKin' => $client->NextOfKin,
+				'NOKPhone1' => $client->NOKPhone1,
+				'NOKPhone2' => $client->NOKPhone2,
+				'NOKPhysicalLocation' => $client->NOKPhysicalLocation,
+				'Imagepath' => $client->Imagepath,
+				'IsPatient' => $client->IsPatient,
+				'LastUpdated' => $client->LastUpdated,
+			);
 			
-			/*
-			Id;
-			Code;
-			FirstName;
-			LastName;
-			SurName;
-			PostalAddress;
-			PostalCode;
-			Phone1;
-			Phone2;
-			Email;
-			PhysicalLocation;
-			City;
-			CountryCode;
-			NextOfKin;
-			NOKPhone1;
-			NOKPhone2;
-			NOKPhysicalLocation;
-			Imagepath;
-			IsPatient;
-			LastUpdated;
-			*/
-
 			$Id = (int) $client->Id;
 			if ($Id == 0)
 			{
@@ -198,7 +196,7 @@
 			$validationRule = array(
 				'Code' => array('required' => true, 'type' => 'string', 'message' => 'The Client Code is required.'),
 				'FirstName' => array('required' => true, 'type' => 'string', 'message' => 'First Name is required.'),
-				'LastName' => array('required' => true, 'type' => 'string', 'message' => 'Last Name is required.'),
+				'SurName' => array('required' => true, 'type' => 'string', 'message' => 'SurName Name is required.'),
 				'Phone1' => array('required' => true, 'type' => 'string', 'message' => 'The primary phone number is required.'),
 				'PhysicalLocation' => array('required' => true, 'type' => 'string', 'message' => 'The resident location is required.'),
 				'NextOfKin' => array('required' => true, 'type' => 'string', 'message' => 'The Next of Kin is required.'),

@@ -96,7 +96,7 @@
         font-size: 12px;
         font-weight: normal;
         color: #ff6a6a;
-        list-style: inside url(../../Content/Images/Icons/err-list.gif);
+        list-style: circle;
         padding: 4px 2px;
         margin: 1px; 
         border-radius: 2px;
@@ -344,35 +344,28 @@
     
     .form-control {
         background-color: #FFF;
-        height: 28px;
+        height: 30px;
         font-family: Tahoma, sans-serif, Helvetica, Verdana, Arial;
         font-weight: 100;
         color: #404040;
-        padding: 1px 2px;
+        padding: 1px 5px;
         box-shadow: none !important;
-        border: 1px solid #999;
+        border: 1px solid #aaa;
         border-radius: 1px;
         -moz-border-radius: 1px;
         -webkit-border-radius: 1px;
         -o-border-radius: 1px;
     }
-
-    input[readonly], textarea[readonly] {
-        background-color: #f5f5fa !important;
-        border: 1px solid #eae8e8;
-        cursor: pointer !important; 
-        box-shadow: none !important;
-    }
     
-    input[readonly], textarea[readonly] {
-        background-color: #f5f5fa !important;
-        border: 1px solid #bbb;
+    input[readonly], textarea[readonly], .form-control[readonly] {
+        background-color: #f6f8fa !important;
+        border: 1px solid #ccc;
         cursor: pointer !important; 
         box-shadow: none !important;
     }
     
     input[disabled], textarea[disabled], .form-control[disabled] {
-        background-color: #f5f5fa !important; 
+        background-color: #f6f8fa !important; 
         box-shadow: none !important;
     }
     
@@ -380,7 +373,7 @@
         outline: none;
         font-size: 12px !important;
         box-shadow: none;
-        padding: 0 15px 0 2px;
+        padding: 0 15px 0 5px;
         min-width: 20%;
         height: 28px;
         background: #fff url(../../Content/Images/Icons/Ddown.png) no-repeat center right;
@@ -395,7 +388,7 @@
         background: url(../../Content/Images/Icons/Search.png) no-repeat 0 4px;
         background-position: right;
         height: 25px;
-        padding: 1px 2px 1px 2px !important;
+        padding: 1px 2px 1px 5px !important;
         border: 1px solid #bbb !important;
         color: #202020 !important;
         width: 100px;
@@ -410,14 +403,14 @@
         background-color: #FFF !important;
         background: url(../../Content/Images/Icons/Search.png) no-repeat 0 4px;
         background-position: right;
-        padding: 1px 0 1px 2px !important;
+        padding: 1px 0 1px 5px !important;
         border: 1px solid #bbb !important;
     }
 
     .select-search {
         font-size: 11px !important;
         height: 25px;
-        padding: 0 2px !important;
+        padding: 0 5px !important;
         color: #505050 !important;
         width: 120px;
         margin-right: 2px;
@@ -501,7 +494,7 @@
         background-color: transparent; /*f5f5fa*/
         margin-right: 5px;
         height: 25px;
-        color: #707070;
+        color: #555;
         font-size: 14px;
         text-align: left !important;
         text-transform: capitalize;
@@ -535,32 +528,46 @@
 
     .auth-body {
         margin: 70px auto 20px auto;
+        background-color: #fff;
+    }
+
+    .auth-form-wrapper {
+        background-color: #fff;
+        padding: 25px 1px;
     }
 
     .auth-form {
+        margin: 0 auto; 
         position: relative;
         min-height: 360px;
+        max-width: 550px;
         padding: 5px 15px 5px 15px;
-        box-shadow: 0 2px 12px 0 rgba(0,0,0,0.2);
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        -moz-border-radius: 3px;
-        -webkit-border-radius: 3px;
-        -o-border-radius: 3px;
+        background-color: #fafafa;
+        box-shadow: 0 0 0 0 #42526c;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -o-border-radius: 5px;
     }
     
     .auth-form .form-control {
-        margin-top: 2px !important;
+        margin-top: 2px;
     }
 
     .auth-form label {
         color: #555;
     }
 
+    .auth-form label a {
+        color: #337ab7;
+        font-size: 12px;
+    }
+
     .auth-footer {
-        margin-top: 30px;
+        margin-top: 20px;
         background: none;
-        padding: 5px 15px 10px 5px;
+        padding: 5px 5px 10px 5px;
         font-size: 12px;
         color: #555;
     }
@@ -738,12 +745,12 @@
 
     .header-top {
         min-height: 40px;
-        padding: 0 15px 0 0;
-        background-color: #2ea3f2;
+        padding-right: 18px;
+        background-color: #337ab7;
     }
 
     .navbar {
-        background-color: #2ea3f2;
+        background-color: #337ab7;
         background-image: none;
         box-shadow: none;
         min-height: 40px;
@@ -756,8 +763,8 @@
     }
     
     .alt-bg {
-        background-color: #2ea3f2 !important;
-        color: #fff;
+        background-color: #337ab7 !important;
+        color: #222;
     }
 
     .alt-bg .navbar-brand {
@@ -769,13 +776,13 @@
         font-size: 22px;
         color: #fff !important;
         font-weight: 100;
-        text-transform: capitalize;
+        text-transform: initial;
         margin-left: 0px!important;
         margin-top: 6px;
     }
     
     .navbar-brand span {
-        color: #2AAC48;
+        color: #337ab7;
     }
     
     .navbar-default .navbar-toggle {
@@ -784,12 +791,12 @@
         padding: 6px 8px;
         background-image: none;
     }
-
+    
     .admin-nav .navbar-brand {
-        font-size: 18px;
+        font-size: 15px;
         margin-top: 5px;
     }
-
+    
     .navbar-default .navbar-nav > li a {
         font-size: 14px;
         font-weight: 100;
@@ -812,13 +819,13 @@
     .navbar-default .nav > li > a:focus:hover {
         color: #fff; 
         background-image: none;
-        background-color: #60b0e6;
+        background-color: #3e85c4;
     }
     
     .navbar-default .nav > li.active > a,
     .navbar-default .nav > li.active > a:focus {
         color: #fff;
-        background-color: #49a9e9;
+        background-color: #3e85c4;
         background-image: none;
         box-shadow: none;
         border-radius: 0;
@@ -830,13 +837,13 @@
     .navbar-default .nav > li.active > a:hover,
     .navbar-default .nav > li.active > a:focus:hover {
         color: #fff;
-        background-color: #49a9e9;
+        background-color: #3e85c4;
     }
       
     .navbar-default .navbar-nav > .active > a,
     .navbar-default .navbar-nav > .active > a:hover,
     .navbar-default .navbar-nav > .active > a:focus {
-        background-color: #49a9e9;
+        background-color: #3e85c4;
         color: #fff;
     }
     
@@ -845,7 +852,7 @@
     .navbar-default .navbar-nav > .open > a:focus {
         background-image: none;
         box-shadow: none;
-        background-color: #49a9e9;
+        background-color: #3e85c4;
         color: #fff;
     }
    
@@ -856,12 +863,12 @@
 
     .navbar-default .dropdown-menu li a:hover {
         background-image: none;
-        background-color: #60b0e6 !important;
-        color: #fff !important;
+        background-color: #337ab7 !important;
+        color: #FFF !important
     }
     
     .navbar-default .dropdown-menu > li a {
-        background-color: #49a9e9;
+        background-color: #3e85c4;
         font-weight: 100;
         font-size: 12px !important;
         color: #fff !important;
@@ -874,7 +881,7 @@
     .dropdown-menu {
         padding-top: 0;
         padding-bottom: 0;
-        background-color: #49a9e9;
+        background-color: #3e85c4;
         border: none;
         box-shadow: none;
         border-radius: 0;
@@ -893,6 +900,7 @@
 
     .dropdown-menu .divider {
     	margin: 0px;
+        background-color: #ccc;
     }
 
     .navbar-nav i

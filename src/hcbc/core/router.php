@@ -10,7 +10,7 @@
 		{ 
 			$identity= new \core\identity();
 			$uId = $identity->getIdentity();
-			$uName = !empty($uId['Username']) ? $uId['Username'] : null;
+			$uName = !empty($uId['UserName']) ? $uId['UserName'] : null;
 			$anonymous= autoloader::getConfig()['anonymous'];
 			// Split the URL
 			$url_array = array(); $url_array = explode("/",$url); 

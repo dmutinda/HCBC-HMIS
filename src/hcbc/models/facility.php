@@ -76,19 +76,15 @@
 		 */
 		public function save(facility $facility)
 		{
-			$facility->Name = strtoupper($facility->Name);
-			
-			$data = "
-			$facility->Id,
-			'$facility->Name'";
-			
-			/*
-			Id;
-			FacilityCode;
-			CompanyId;
-			FacilityName;
-			Created;
-			*/
+			$facility->FacilityName = strtoupper($facility->FacilityName);
+
+			$data = array(		
+				'Id' => $facility->Id,
+				'FacilityCode' => $facility->FacilityCode,
+				'CompanyId' => $facility->CompanyId,
+				'FacilityName' => $facility->FacilityName,
+				'Created'  	=> $facility->Created,
+			);
 
 			$Id = (int) $facility->Id;
 			if ($Id == 0)

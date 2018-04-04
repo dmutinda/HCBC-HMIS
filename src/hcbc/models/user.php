@@ -49,7 +49,7 @@
 			$data = array();
 			if(!empty($userId))
 			{
-				$results = $this->db->sqlQuery("SELECT * FROM users WHERE Id = '".$userId."';");
+				$results = $this->db->sqlQuery("SELECT * FROM Users WHERE Id = '".$userId."';");
 				while($row = $this->db->getArray($results))
 				{
 					$data = $row;
@@ -65,41 +65,40 @@
 		 */
 		public function save(user $user)
 		{
-			$user->Name = strtoupper($user->Name);
-			/*
-			Id;
-			UserCode;
-			JobTitleId;
-			FacilityId;
-			NationalId;
-			FirstName;
-			LastName;
-			UserName;
-			Root;
-			Password
-			SecurityStamp;
-			RegKey;
-			Registered;
-			ImgPath;
-			TwoFactorEnabled;
-			LockoutEndDateUtc;
-			LockoutEnabled;
-			AccessFailedCount;
-			PhoneNumber;
-			PhoneNumberConfirmed;
-			Email;
-			EmailConfirmed;
-			Disabled;
-			Created;
-			*/
-			$data = "
-			$user->Id,
-			'$user->Name'";
+			$user->FirstName = strtoupper($user->FirstName);
+			$user->LastName = strtoupper($user->LastName);
+
+			$data = array(		
+				'Id' => $user->Id,
+				'UserCode' => $user->UserCode,
+				'JobTitleId' => $user->JobTitleId,
+				'FacilityId' => $user->FacilityId,
+				'NationalId' => $user->NationalId,
+				'FirstName' => $user->FirstName,
+				'LastName' => $user->LastName,
+				'UserName' => $user->UserName,
+				'Root' => $user->Root,
+				'Password' => $user->Password,
+				'SecurityStamp' => $user->SecurityStamp,
+				'RegKey' => $user->RegKey,
+				'Registered' => $user->Registered,
+				'ImgPath' => $user->ImgPath,
+				'TwoFactorEnabled' => $user->TwoFactorEnabled,
+				'LockoutEndDateUtc' => $user->LockoutEndDateUtc,
+				'LockoutEnabled' => $user->LockoutEnabled,
+				'AccessFailedCount' => $user->AccessFailedCount,
+				'PhoneNumber' => $user->PhoneNumber,
+				'PhoneNumberConfirmed' => $user->PhoneNumberConfirmed,
+				'Email' => $user->Email,
+				'EmailConfirmed' => $user->EmailConfirmed,
+				'Disabled' => $user->Disabled,
+				'Created' => $user->Created
+			);
 			
 			$Id = (int) $user->Id;
 			if ($Id == 0)
 			{
-				$results = $this->db->sqlQuery('INSERT INTO users VALUES ('.$data.');');
+				$results = $this->db->sqlQuery('INSERT INTO Users VALUES ('.$data.');');
 				while($row = $this->db->getArray($results))
 				{
 					$res = $row;
@@ -130,7 +129,7 @@
 				$row = $this->find($userId);
 				if ($row)
 				{
-					$results = $this->db->sqlQuery('UPDATE users SET Password = '.$newPassword.' WHERE UserName = '.$userId.';');
+					$results = $this->db->sqlQuery('UPDATE Users SET Password = Password('.$newPassword.') WHERE Id = '.$userId.';');
 					return true;
 				}
 			}
@@ -148,7 +147,7 @@
 			$identity = array();
 			if(!empty($username) && !empty($password))
 			{
-				$results = $this->db->sqlQuery("SELECT * FROM users WHERE UserName = '".$username."' AND Password = '".$password."';");
+				$results = $this->db->sqlQuery("SELECT * FROM Users WHERE UserName = '".$username."' AND Password = Password('".$password."');");
 				while($row = $this->db->getArray($results))
 				{
 					$identity= $row;
@@ -170,7 +169,7 @@
 				$row = $this->find($userId);
 				if ($row)
 				{
-					$results = $this->db->sqlQuery('UPDATE users SET Disabled = '.$disable.' WHERE Id = '.$userId.';');
+					$results = $this->db->sqlQuery('UPDATE Users SET Disabled = '.$disable.' WHERE Id = '.$userId.';');
 					return true;
 				}
 			}
@@ -189,7 +188,7 @@
 				$row = $this->find($userId);
 				if ($row)
 				{
-					$results = $this->db->sqlQuery('DELETE FROM users WHERE Id = '.$userId.';');
+					$results = $this->db->sqlQuery('DELETE FROM Users WHERE Id = '.$userId.';');
 					return true;
 				}
 			}

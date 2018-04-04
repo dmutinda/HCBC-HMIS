@@ -18,26 +18,36 @@
 			$this->getView()->render($this->controller,  __FUNCTION__);
 		}
 		
-		public function profile($id)
+		public function profile()
 		{
+			$identity = $this->auth->getIdentity();
+			if(empty($identity))
+			{
+				\core\app::redirectTo('/account/logout');
+			}
+			else
+			{
+				$id = $identity['UserID'];
+			}
+			$user = $this->getModel('models\user')->find($id);
+			$this->getView()->set('user', $user);
 			$this->getView()->render($this->controller,  __FUNCTION__);
 		}
-		
+
 		public function login()
 		{
 			$isValid = $this->auth->isValid();
-			if(!empty($isValid)) $this->app->redirectTo('/login');
+			if(!empty($isValid)) $this->app->redirectTo('/main/index');
 			
 			if(isset($_POST['lgusr']))
 			{
 				$data = $_POST;
-				$username = trim($data['UserName']);
+				$username = trim($data['username']);
 				$password = trim($data['password']);
-				$remMe = isset($data['remMe']) ? 1 : 0;
 				
 				if(empty($username))
 				{
-					$this->account->setError(array('UserName' => 'The Username is required.'));
+					$this->account->setError(array('username' => 'The Username is required.'));
 				}
 				elseif(empty($password))
 				{
@@ -49,14 +59,13 @@
 					$res = $this->account->login($username, $password);
 					if (!empty($res))
 					{
-						if(empty($res['Disabled']))
+						if(!empty($res['Disabled']))
 						{
 							$this->account->setError(array('Disabled' => 'Your Account has been disabled.'));
 						}
 						else 
 						{
 							$this->auth->setIdentity($res);
-							if(!empty($remMe)) $this->app->setCookie('_hlpusd_', $res['UserName'], 1);
 							$this->app->redirectTo('/main');
 						}
 					}
@@ -68,9 +77,10 @@
 				}
 				else
 				{
-					$this->account->setError(array('UserName' => 'Please check your username and password and try again.'));
+					$this->account->setError(array('username' => 'Please check your username and password and try again.'));
 				}
 			}
+			$this->getView()->set('errors', $this->errors);
 			$this->getView()->render($this->controller,  __FUNCTION__);
 		}
 		
@@ -105,7 +115,7 @@
 				}
 				else
 				{
-					$valid = $this->account->validatePassword($data['UserName'], $data['oldpassword']);
+					$valid = $this->account->validatePassword($data['username'], $data['oldpassword']);
 					if(empty($valid))
 					{
 						$this->account->setError(array('oldpassword' => 'Your current password is invalid.'));
