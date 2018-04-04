@@ -344,35 +344,28 @@
     
     .form-control {
         background-color: #FFF;
-        height: 28px;
+        height: 30px;
         font-family: Tahoma, sans-serif, Helvetica, Verdana, Arial;
         font-weight: 100;
         color: #404040;
-        padding: 1px 2px;
+        padding: 1px 5px;
         box-shadow: none !important;
-        border: 1px solid #999;
+        border: 1px solid #aaa;
         border-radius: 1px;
         -moz-border-radius: 1px;
         -webkit-border-radius: 1px;
         -o-border-radius: 1px;
     }
-
-    input[readonly], textarea[readonly] {
-        background-color: #f5f5fa !important;
-        border: 1px solid #eae8e8;
-        cursor: pointer !important; 
-        box-shadow: none !important;
-    }
     
-    input[readonly], textarea[readonly] {
-        background-color: #f5f5fa !important;
-        border: 1px solid #bbb;
+    input[readonly], textarea[readonly], .form-control[readonly] {
+        background-color: #f6f8fa !important;
+        border: 1px solid #ccc;
         cursor: pointer !important; 
         box-shadow: none !important;
     }
     
     input[disabled], textarea[disabled], .form-control[disabled] {
-        background-color: #f5f5fa !important; 
+        background-color: #f6f8fa !important; 
         box-shadow: none !important;
     }
     
@@ -380,7 +373,7 @@
         outline: none;
         font-size: 12px !important;
         box-shadow: none;
-        padding: 0 15px 0 2px;
+        padding: 0 15px 0 5px;
         min-width: 20%;
         height: 28px;
         background: #fff url(../../Content/Images/Icons/Ddown.png) no-repeat center right;
@@ -395,7 +388,7 @@
         background: url(../../Content/Images/Icons/Search.png) no-repeat 0 4px;
         background-position: right;
         height: 25px;
-        padding: 1px 2px 1px 2px !important;
+        padding: 1px 2px 1px 5px !important;
         border: 1px solid #bbb !important;
         color: #202020 !important;
         width: 100px;
@@ -410,14 +403,14 @@
         background-color: #FFF !important;
         background: url(../../Content/Images/Icons/Search.png) no-repeat 0 4px;
         background-position: right;
-        padding: 1px 0 1px 2px !important;
+        padding: 1px 0 1px 5px !important;
         border: 1px solid #bbb !important;
     }
 
     .select-search {
         font-size: 11px !important;
         height: 25px;
-        padding: 0 2px !important;
+        padding: 0 5px !important;
         color: #505050 !important;
         width: 120px;
         margin-right: 2px;
@@ -501,7 +494,7 @@
         background-color: transparent; /*f5f5fa*/
         margin-right: 5px;
         height: 25px;
-        color: #707070;
+        color: #555;
         font-size: 14px;
         text-align: left !important;
         text-transform: capitalize;
@@ -535,32 +528,46 @@
 
     .auth-body {
         margin: 70px auto 20px auto;
+        background-color: #fafafa;
+    }
+
+    .auth-form-wrapper {
+        background-color: #fff;
+        padding: 25px 1px;
     }
 
     .auth-form {
+        margin: 0 auto; 
         position: relative;
         min-height: 360px;
+        max-width: 550px;
         padding: 5px 15px 5px 15px;
-        box-shadow: 0 2px 12px 0 rgba(0,0,0,0.2);
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        -moz-border-radius: 3px;
-        -webkit-border-radius: 3px;
-        -o-border-radius: 3px;
+        background-color: #fafafa;
+        box-shadow: 0 0 0 0 #42526c;
+        border: none;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -o-border-radius: 5px;
     }
     
     .auth-form .form-control {
-        margin-top: 2px !important;
+        margin-top: 2px;
     }
 
     .auth-form label {
         color: #555;
     }
 
+    .auth-form label a {
+        color: #337ab7;
+        font-size: 12px;
+    }
+
     .auth-footer {
-        margin-top: 30px;
+        margin-top: 20px;
         background: none;
-        padding: 5px 15px 10px 5px;
+        padding: 5px 5px 10px 5px;
         font-size: 12px;
         color: #555;
     }

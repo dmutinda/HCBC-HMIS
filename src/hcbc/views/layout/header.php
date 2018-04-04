@@ -24,7 +24,7 @@
 				<div class="navbar-header">
 					<a class="navbar-brand" href="/">
 					<i class="fa fa-users"></i>
-						<?php echo $this->app->getAppCompany();?>
+						<?php echo $this->app->getAppTitle();?>
 					</a>
 				</div>
 				<?php if($valid):?>
@@ -69,7 +69,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="/"><i class="fa fa-home"></i> Home</a></li>
 					
-					<?php if(!$valid):?>
+					<?php if($valid):?>
 						<li><a href="#">Dashboard</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
@@ -95,8 +95,8 @@
 								<li><a href="#">Facility Summary Form</a></li>
 							</ul>
 						</li>
-						<li><a href="#">Support</a></li>
 					<?php endif;?>
+					<li><a href="/main/support">Support</a></li>
 					<li><a href="/main/about">About</a></li>
 				</ul>
 				<!-- authenticated menus -->
