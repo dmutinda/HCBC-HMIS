@@ -19,7 +19,7 @@
 	<body>
 
 	<div class="header-top">
-		<nav class="navbar navbar-default">
+		<nav class="navbar navbar-default alt-bg">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<a class="navbar-brand" href="/">
@@ -31,15 +31,15 @@
 					<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
 							<a href="/account/profile" class="dropdown-toggle" data-toggle="dropdown">
-								Profile <i class="fa fa-angle-down"></i>
+								Account <i class="fa fa-angle-down"></i>
 							</a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Change Password</a></li>
+								<li><a href="/account/password">Change Password</a></li>
 								<li class="divider"></li>
-								<li><a href="#">User Account</a></li>
+								<li><a href="/account/profile">User Account</a></li>
 								<li class="divider"></li>
-								<li><a href="#">Contact Support</a></li>
-								<li><a href="#">Send us your Feedback</a></li>
+								<li><a href="/main/support">Contact Support</a></li>
+								<li><a href="/main/contact">Send us your Feedback</a></li>
 								<li class="divider"></li>
 								<li><a href="/account/logout">Sign Out</a></li>
 							</ul>
@@ -67,20 +67,19 @@
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+					<li><a href="/">Home</a></li>
 					
 					<?php if($valid):?>
-						<li><a href="#">Dashboard</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
 								Institution <i class="fa fa-angle-down"></i>
 							</a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Facilities</a><li> 
-								
+								<li><a href="/company/facility">Facilities</a><li> 
+								<li><a href="#">Dashboard</a></li>
 							</ul>
 						</li>
-						<li><a href="#">Clients</a><li> 
+						<li><a href="/company/clients">Clients</a><li> 
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
 								Daily Activities <i class="fa fa-angle-down"></i>
@@ -104,7 +103,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-							<i class="fa fa-phone"></i> Call Us +254 722 000 001 <i class="fa fa-angle-down"></i>
+							<i class="fa fa-phone"></i> Call Us: +254 722 000 001 <i class="fa fa-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu">
 							<li><a href="#"><i class="fa fa-phone"></i> Queries: +254 733 000 001</a></li>
