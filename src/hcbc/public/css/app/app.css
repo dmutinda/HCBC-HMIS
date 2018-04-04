@@ -96,7 +96,7 @@
         font-size: 12px;
         font-weight: normal;
         color: #ff6a6a;
-        list-style: inside url(../../Content/Images/Icons/err-list.gif);
+        list-style: circle;
         padding: 4px 2px;
         margin: 1px; 
         border-radius: 2px;
@@ -528,7 +528,7 @@
 
     .auth-body {
         margin: 70px auto 20px auto;
-        background-color: #fafafa;
+        background-color: #fff;
     }
 
     .auth-form-wrapper {
@@ -544,7 +544,7 @@
         padding: 5px 15px 5px 15px;
         background-color: #fafafa;
         box-shadow: 0 0 0 0 #42526c;
-        border: none;
+        border: 1px solid #eee;
         border-radius: 5px;
         -moz-border-radius: 5px;
         -webkit-border-radius: 5px;
@@ -745,8 +745,8 @@
 
     .header-top {
         min-height: 40px;
-        padding: 0;
-        background-color: transparent;
+        padding-right: 18px;
+        background-color: #337ab7;
     }
 
     .navbar {
@@ -793,12 +793,12 @@
     }
     
     .admin-nav .navbar-brand {
-        font-size: 18px;
+        font-size: 15px;
         margin-top: 5px;
     }
     
     .navbar-default .navbar-nav > li a {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 100;
         color: #fff;
         font-family: sans-serif, Tahoma, Arial, Verdana, Helvetica;
