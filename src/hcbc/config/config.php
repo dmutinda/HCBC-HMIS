@@ -17,7 +17,7 @@ return array(
 		'debug' => true,
 		'baseUrl' => '',
 		'company' => 'Community Care',
-		'appTitle' => 'HCBC E-CARE',
+		'appTitle' => 'HCBC e-CARE',
 		'default' => 'main',
 		'queries' => 'mmutinda@gmail.com',
 		'admin' => 'mmutinda@gmail.com',
