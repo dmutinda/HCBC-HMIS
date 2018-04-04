@@ -18,40 +18,32 @@
 			$this->getView()->render($this->controller,  __FUNCTION__);
 		}
 		
-		public function profile($id)
+		public function profile()
 		{
-			$this->getView()->render($this->controller,  __FUNCTION__);
-		}
-
-		/*
-		public function details()
-		{
-			$identity = \core\session::getIdentity();
+			$identity = $this->auth->getIdentity();
 			if(empty($identity))
 			{
-				\core\app::redirectTo('/logout');
+				\core\app::redirectTo('/account/logout');
 			}
 			else
 			{
-				$id = $identity['userID'];
+				$id = $identity['UserID'];
 			}
-			$user = $this->getModel('models\user')->findUser($id);
+			$user = $this->getModel('models\user')->find($id);
 			$this->getView()->set('user', $user);
-			$this->getView()->render($this->controller, 'details');
+			$this->getView()->render($this->controller,  __FUNCTION__);
 		}
-		*/
-		
+
 		public function login()
 		{
 			$isValid = $this->auth->isValid();
-			if(!empty($isValid)) $this->app->redirectTo('/login');
+			if(!empty($isValid)) $this->app->redirectTo('/main/index');
 			
 			if(isset($_POST['lgusr']))
 			{
 				$data = $_POST;
 				$username = trim($data['username']);
 				$password = trim($data['password']);
-				$remMe = isset($data['remMe']) ? 1 : 0;
 				
 				if(empty($username))
 				{
@@ -67,7 +59,7 @@
 					$res = $this->account->login($username, $password);
 					if (!empty($res))
 					{
-						if(empty($res['Disabled']))
+						if(!empty($res['Disabled']))
 						{
 							$this->account->setError(array('Disabled' => 'Your Account has been disabled.'));
 						}

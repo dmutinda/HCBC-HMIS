@@ -60,34 +60,22 @@ namespace core;
 			$hasSession = $this->session->hasSession();
 			if(empty($hasSession))
 			{
-
-				/*
-					Id
-					FacilityId
-					NationalId
-					FirstName
-					LastName
-					UserName
-					Password
-					Disabled
-					Created
-				*/
-
 				$items = array (
-					'UserID' => $sessionData['UserID'],
-					'Username' => ucwords(strtolower($sessionData['Username'])),
-					'Firstname' =>$sessionData['Firstname'],
-					'Othernames' =>$sessionData['Othernames'],
-					'Active' =>$sessionData['Active'],
-					'userHandle' => ucwords($sessionData['Firstname'] . '.' . $sessionData['Othernames']), 
-					'Department' =>$sessionData['Department'],
-					'SystemAdmin' =>$sessionData['SystemAdmin'],
+					'UserID' => $sessionData['Id'],
+					'Username' => ucwords(strtolower($sessionData['UserName'])),
+					'Firstname' =>$sessionData['FirstName'],
+					'Othernames' =>$sessionData['LastName'],
+					'Active' =>$sessionData['Disabled'],
+					'userHandle' => ucwords($sessionData['FirstName'] . '.' . $sessionData['LastName']), 
+					'FacilityId' =>$sessionData['FacilityId'],
+					'Department' =>$sessionData['JobTitleId'],
+					'SystemAdmin' =>$sessionData['Root'],
 					'Email' =>$sessionData['Email'],
 					'auth' => array(),
 					'objects' => array()
 				);
 				$this->session->save($items);
-				return $sessionData['UserID']; 
+				return $sessionData['Id']; 
 	 		}
 			return 0;
 		}

@@ -195,12 +195,12 @@
 	  		{
 		  		if(is_array($value))
 		  		{
-		  			$err =  "<ol class='err-list'>";
+		  			$err =  "<ul class='err-list'>";
 		  			foreach ($value as $key => $value)
 		  			{
 		  				$err .= "<li>".$value."</li>";
 		  			}
-		  			$err .= "</ol>";
+		  			$err .= "</ul>";
 		  		}
 		  		else
 		  		{

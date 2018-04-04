@@ -49,7 +49,7 @@
 			$data = array();
 			if(!empty($userId))
 			{
-				$results = $this->db->sqlQuery("SELECT * FROM users WHERE Id = '".$userId."';");
+				$results = $this->db->sqlQuery("SELECT * FROM Users WHERE Id = '".$userId."';");
 				while($row = $this->db->getArray($results))
 				{
 					$data = $row;
@@ -98,7 +98,7 @@
 			$Id = (int) $user->Id;
 			if ($Id == 0)
 			{
-				$results = $this->db->sqlQuery('INSERT INTO users VALUES ('.$data.');');
+				$results = $this->db->sqlQuery('INSERT INTO Users VALUES ('.$data.');');
 				while($row = $this->db->getArray($results))
 				{
 					$res = $row;
@@ -129,7 +129,7 @@
 				$row = $this->find($userId);
 				if ($row)
 				{
-					$results = $this->db->sqlQuery('UPDATE users SET Password = '.$newPassword.' WHERE UserName = '.$userId.';');
+					$results = $this->db->sqlQuery('UPDATE Users SET Password = Password('.$newPassword.') WHERE Id = '.$userId.';');
 					return true;
 				}
 			}
@@ -147,7 +147,7 @@
 			$identity = array();
 			if(!empty($username) && !empty($password))
 			{
-				$results = $this->db->sqlQuery("SELECT * FROM users WHERE UserName = '".$username."' AND Password = '".$password."';");
+				$results = $this->db->sqlQuery("SELECT * FROM Users WHERE UserName = '".$username."' AND Password = Password('".$password."');");
 				while($row = $this->db->getArray($results))
 				{
 					$identity= $row;
@@ -169,7 +169,7 @@
 				$row = $this->find($userId);
 				if ($row)
 				{
-					$results = $this->db->sqlQuery('UPDATE users SET Disabled = '.$disable.' WHERE Id = '.$userId.';');
+					$results = $this->db->sqlQuery('UPDATE Users SET Disabled = '.$disable.' WHERE Id = '.$userId.';');
 					return true;
 				}
 			}
@@ -188,7 +188,7 @@
 				$row = $this->find($userId);
 				if ($row)
 				{
-					$results = $this->db->sqlQuery('DELETE FROM users WHERE Id = '.$userId.';');
+					$results = $this->db->sqlQuery('DELETE FROM Users WHERE Id = '.$userId.';');
 					return true;
 				}
 			}
