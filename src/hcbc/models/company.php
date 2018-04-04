@@ -90,32 +90,27 @@
 		public function save(company $company)
 		{
 			$company->Name = strtoupper($company->Name);
-			
-			$data = "
-			$company->Id,
-			'$company->Name'";
-			
-			/*
-			Id;
-			Code;
-			Name;
-			Contact;
-			PostalAddress
-			PostalCode;
-			Phone1;
-			Phone2;
-			Email;
-			Website;
-			PhysicalLocation;
-			City;
-			CountryCode;
-			TaxNumber;
-			Logopath;
-			Disabled;
-			DefaultCompany;
-			Created;
-			*/
 
+			$data = array(		
+				'Id' => $company->Id,
+				'Code' => $company->Code,
+				'Name' => $company->Name,
+				'Contact' => $company->Contact,
+				'PostalAddress' => $company->PostalAddress,
+				'PostalCode'  => $company->PostalCode,
+				'Phone1' => $company->Phone1,
+				'Phone2' => $company->Phone2,
+				'Email' => $company->Email,
+				'Website' => $company->Website,
+				'PhysicalLocation' => $company->PhysicalLocation,
+				'City' => $company->City,
+				'CountryCode' => $company->CountryCode,
+				'TaxNumber' => $company->TaxNumber,
+				'Logopath' => $company->Logopath,
+				'Disabled' => $company->Disabled,
+				'DefaultCompany' => $company->DefaultCompany,
+				'Created' => $company->Created
+			);
 
 			$Id = (int) $company->Id;
 			if ($Id == 0)

@@ -65,36 +65,35 @@
 		 */
 		public function save(user $user)
 		{
-			$user->Name = strtoupper($user->Name);
-			/*
-			Id;
-			UserCode;
-			JobTitleId;
-			FacilityId;
-			NationalId;
-			FirstName;
-			LastName;
-			UserName;
-			Root;
-			Password
-			SecurityStamp;
-			RegKey;
-			Registered;
-			ImgPath;
-			TwoFactorEnabled;
-			LockoutEndDateUtc;
-			LockoutEnabled;
-			AccessFailedCount;
-			PhoneNumber;
-			PhoneNumberConfirmed;
-			Email;
-			EmailConfirmed;
-			Disabled;
-			Created;
-			*/
-			$data = "
-			$user->Id,
-			'$user->Name'";
+			$user->FirstName = strtoupper($user->FirstName);
+			$user->LastName = strtoupper($user->LastName);
+
+			$data = array(		
+				'Id' => $user->Id,
+				'UserCode' => $user->UserCode,
+				'JobTitleId' => $user->JobTitleId,
+				'FacilityId' => $user->FacilityId,
+				'NationalId' => $user->NationalId,
+				'FirstName' => $user->FirstName,
+				'LastName' => $user->LastName,
+				'UserName' => $user->UserName,
+				'Root' => $user->Root,
+				'Password' => $user->Password,
+				'SecurityStamp' => $user->SecurityStamp,
+				'RegKey' => $user->RegKey,
+				'Registered' => $user->Registered,
+				'ImgPath' => $user->ImgPath,
+				'TwoFactorEnabled' => $user->TwoFactorEnabled,
+				'LockoutEndDateUtc' => $user->LockoutEndDateUtc,
+				'LockoutEnabled' => $user->LockoutEnabled,
+				'AccessFailedCount' => $user->AccessFailedCount,
+				'PhoneNumber' => $user->PhoneNumber,
+				'PhoneNumberConfirmed' => $user->PhoneNumberConfirmed,
+				'Email' => $user->Email,
+				'EmailConfirmed' => $user->EmailConfirmed,
+				'Disabled' => $user->Disabled,
+				'Created' => $user->Created
+			);
 			
 			$Id = (int) $user->Id;
 			if ($Id == 0)

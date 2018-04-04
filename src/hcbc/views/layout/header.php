@@ -30,7 +30,7 @@
 				<?php if($valid):?>
 					<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<a href="/account/profile" class="dropdown-toggle" data-toggle="dropdown">
 								Profile <i class="fa fa-angle-down"></i>
 							</a>
 							<ul class="dropdown-menu">
@@ -41,19 +41,17 @@
 								<li><a href="#">Contact Support</a></li>
 								<li><a href="#">Send us your Feedback</a></li>
 								<li class="divider"></li>
-								<li><a href="#">Sign Out</a></li>
+								<li><a href="/account/logout">Sign Out</a></li>
 							</ul>
 						</li>
 					</ul>
 				<?php else:?>
 					<div class="navbar-btn-wrapper">
 						<div class="navbar-right">
-							<a class="btn btn-clear navbar-btn" href="#">WORK WITH US!</a>
-							<a class="btn btn-green navbar-btn" href="#">SIGN IN</a>
+							<a class="btn btn-clear navbar-btn" href="/account/login">SIGN IN</a>
 						</div>
 					</div>
 				<?php endif;?>
-
 			</div>
 		</nav>
 	</div>
@@ -69,40 +67,51 @@
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li ><a href="/"><i class="fa fa-home"></i> Home</a></li>
-					<li><a href="#">Dashboard</a></li>
-					<li><a href="#">Institution</a></li>
-					<li><a href="#">Facilities</a><li> 
-					<li><a href="#">Clients</a><li> 
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-							Daily Activities <i class="fa fa-angle-down"></i>
-						</a>
-						<ul class="dropdown-menu">
-							<li><a href="#">CHW Appointments</a></li>
-							<li><a href="#">CHW Notes</a></li>
-							<li><a href="#">Daily Activity Diary</a></li>
-							<li><a href="#">Referral form</a></li>
-							<li><a href="#">Service Delivery Log Book</a></li>
-							<li><a href="#">HCBC Diary</a></li>
-							<li><a href="#">Facility Summary Form</a></li>
-						</ul>
-					</li>
-					<li><a href="#"><i class="fa fa-question"></i> Help</a></li>
+					<li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+					
+					<?php if(!$valid):?>
+						<li><a href="#">Dashboard</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+								Institution <i class="fa fa-angle-down"></i>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Facilities</a><li> 
+								
+							</ul>
+						</li>
+						<li><a href="#">Clients</a><li> 
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+								Daily Activities <i class="fa fa-angle-down"></i>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">CHW Appointments</a></li>
+								<li><a href="#">CHW Notes</a></li>
+								<li><a href="#">Daily Activity Diary</a></li>
+								<li><a href="#">Referral form</a></li>
+								<li><a href="#">Service Delivery Log Book</a></li>
+								<li><a href="#">HCBC Diary</a></li>
+								<li><a href="#">Facility Summary Form</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Support</a></li>
+					<?php endif;?>
+					<li><a href="/main/about">About</a></li>
 				</ul>
 				<!-- authenticated menus -->
 
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-							<i class="fa fa-phone"></i> +254 722 000 001 <i class="fa fa-angle-down"></i>
+							<i class="fa fa-phone"></i> Call Us +254 722 000 001 <i class="fa fa-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu">
 							<li><a href="#"><i class="fa fa-phone"></i> Queries: +254 733 000 001</a></li>
 							<li><a href="#"><i class="fa fa-phone"></i> Support: +254 722 000 002</a></li>
 						</ul>
 					</li>
-					<li><a href="#"><i class="fa fa-envelope"></i> Contacts</a></li>
+					<li><a href="/main/contact"><i class="fa fa-envelope-o"></i> Contacts</a></li>
 				</ul>
 
 
